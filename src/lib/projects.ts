@@ -22,8 +22,7 @@ export const projects: Project[] = [
     id: "cheras-condo-painting",
     serviceSlug: "painting",
     location: "Cheras, Kuala Lumpur",
-    imageUrl:
-      "https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/images/work/painting-hallway.jpg",
     en: {
       title: "Full Condo Interior Repainting",
       clientType: "Residential (3-Bedroom Condominium)",
@@ -43,8 +42,7 @@ export const projects: Project[] = [
     id: "setapak-lbox-ceiling",
     serviceSlug: "plaster-ceiling",
     location: "Setapak, Kuala Lumpur",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/images/work/plaster-circle-led.jpg",
     en: {
       title: "Modern L-Box False Ceiling with Cove Lighting",
       clientType: "Residential (High-Floor Apartment)",
@@ -85,8 +83,7 @@ export const projects: Project[] = [
     id: "klcc-lighting-fan-installation",
     serviceSlug: "electrical",
     location: "KLCC, Kuala Lumpur",
-    imageUrl:
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/images/work/electrical-bedroom-fan.jpg",
     en: {
       title: "Designer Track Light & Inverter Fan Wiring",
       clientType: "Commercial & Residential (Luxury Suite)",
@@ -106,8 +103,7 @@ export const projects: Project[] = [
     id: "mont-kiara-aircond-installation",
     serviceSlug: "aircond-installation",
     location: "Mont Kiara, Kuala Lumpur",
-    imageUrl:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "/images/work/aircond-cassette.jpg",
     en: {
       title: "Multi-Room Inverter Aircond Installation",
       clientType: "Residential (Condominium)",
@@ -142,6 +138,86 @@ export const projects: Project[] = [
       description:
         "Cucian dinding tekanan tinggi menyingkirkan kulat, sapuan sealer kalis air dan 2 lapisan cat Jotun Jotashield Extreme kalis cuaca tropika.",
       highlights: ["Cucian 'water jet' tekanan tinggi", "Cat Jotun Jotashield", "Perlindungan tahan lasak"],
+    },
+  },
+  {
+    id: "kl-living-lbox-ceiling",
+    serviceSlug: "plaster-ceiling",
+    location: "Kuala Lumpur",
+    imageUrl: "/images/work/living-lbox-cassette.jpg",
+    en: {
+      title: "Living Hall L-Box Ceiling with Cove Lighting",
+      clientType: "Residential (Landed Home)",
+      description:
+        "Completed plaster ceiling with perimeter L-box, warm LED cove lighting, recessed downlights, ceiling fan anchors, and a cassette aircond cut-out in the living hall.",
+      highlights: ["L-box with LED cove", "Downlights and fan point", "Cassette aircond opening"],
+    },
+    ms: {
+      title: "Siling L-Box Dewan Tamu dengan Lampu Cove",
+      clientType: "Kediaman (Rumah Landed)",
+      description:
+        "Siling plaster siap dengan L-box, lampu LED cove, downlight, cangkuk kipas, dan bukaan aircond kaset di dewan tamu.",
+      highlights: ["L-box dengan lampu cove", "Downlight dan mata kipas", "Bukaan aircond kaset"],
+    },
+  },
+  {
+    id: "kl-stair-led-lighting",
+    serviceSlug: "electrical",
+    location: "Kuala Lumpur",
+    imageUrl: "/images/work/electrical-stair-led.jpg",
+    en: {
+      title: "Staircase LED Strip and Wall Light",
+      clientType: "Residential (Double Storey)",
+      description:
+        "Installed concealed LED strip along the stair skirting line and a designer wall sconce for safe, even lighting on the staircase.",
+      highlights: ["Concealed stair LED strip", "Wall sconce wiring", "Clean switch point"],
+    },
+    ms: {
+      title: "Lampu LED Tangga dan Lampu Dinding",
+      clientType: "Kediaman (2 Tingkat)",
+      description:
+        "Pemasangan jalur LED tersembunyi di tepi tangga dan lampu dinding untuk pencahayaan tangga yang rata dan selamat.",
+      highlights: ["Jalur LED tangga", "Pendawaian lampu dinding", "Suis kemas"],
+    },
+  },
+  {
+    id: "kl-split-aircond-bedroom",
+    serviceSlug: "aircond-installation",
+    location: "Kuala Lumpur",
+    imageUrl: "/images/work/aircond-split-bedroom.jpg",
+    en: {
+      title: "Bedroom Split Aircond with Cove Ceiling",
+      clientType: "Residential (Bedroom)",
+      description:
+        "Wall-mounted split aircond installed with neat indoor unit positioning, matching plaster ceiling downlights, and a warm LED cove around the room.",
+      highlights: ["Split indoor unit", "Neat wall mounting", "Ceiling lighting aligned"],
+    },
+    ms: {
+      title: "Aircond Split Bilik dengan Siling Cove",
+      clientType: "Kediaman (Bilik Tidur)",
+      description:
+        "Pemasangan aircond split dinding bersama downlight siling plaster dan lampu cove LED hangat di sekeliling bilik.",
+      highlights: ["Unit indoor split", "Pemasangan dinding kemas", "Lampu siling seiring"],
+    },
+  },
+  {
+    id: "kl-tv-wall-interior",
+    serviceSlug: "painting",
+    location: "Kuala Lumpur",
+    imageUrl: "/images/work/interior-tv-wall.jpg",
+    en: {
+      title: "Feature TV Wall and Interior Finishing",
+      clientType: "Residential (Living Hall)",
+      description:
+        "Interior finishing around the TV feature wall with painted surfaces, cove lighting, and a clean living hall presentation after ceiling and lighting works.",
+      highlights: ["Interior wall finishing", "Cove lighting backdrop", "Living hall presentation"],
+    },
+    ms: {
+      title: "Dinding TV dan Kemasan Dalaman",
+      clientType: "Kediaman (Dewan Tamu)",
+      description:
+        "Kemasan dalaman di sekeliling dinding TV dengan cat, lampu cove, dan dewan tamu yang kemas selepas kerja siling dan lampu.",
+      highlights: ["Kemasan dinding dalaman", "Latar lampu cove", "Dewan tamu siap"],
     },
   },
 ];

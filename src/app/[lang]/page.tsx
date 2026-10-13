@@ -133,8 +133,8 @@ export default async function HomePage({ params }: Props) {
                 {/* Main Hero Showcase Image */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-slate-700/60 shadow-2xl h-[420px] bg-slate-800">
                   <Image
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
-                    alt="RapiWorks KL Quality Renovation and Plaster Ceiling"
+                    src="/images/work/living-lbox-cassette.jpg"
+                    alt="RapiWorks KL plaster ceiling, lighting and aircond work"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 500px"

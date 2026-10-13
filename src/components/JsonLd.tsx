@@ -13,7 +13,7 @@ export function LocalBusinessJsonLd({ lang }: LocalBusinessJsonLdProps) {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: site.name,
-    image: `${baseUrl}/images/hero-og.jpg`,
+    image: `${baseUrl}/images/work/living-lbox-cassette.jpg`,
     "@id": `${baseUrl}/#business`,
     url: `${baseUrl}/${lang}`,
     telephone: site.phoneTel,

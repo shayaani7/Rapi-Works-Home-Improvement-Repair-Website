@@ -34,8 +34,7 @@ export const services: Record<string, ServiceData> = {
   painting: {
     slug: "painting",
     iconName: "Paintbrush",
-    imageUrl:
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/images/work/painting-interior.jpg",
     en: {
       title: "House Painting Services",
       seoTitle: "House Painting Services Kuala Lumpur",
@@ -196,8 +195,7 @@ export const services: Record<string, ServiceData> = {
   "plaster-ceiling": {
     slug: "plaster-ceiling",
     iconName: "Layers",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/images/work/plaster-lbox-windows.jpg",
     en: {
       title: "Plaster Ceiling Contractor",
       seoTitle: "Plaster Ceiling Contractor Kuala Lumpur",
@@ -520,8 +518,7 @@ export const services: Record<string, ServiceData> = {
   electrical: {
     slug: "electrical",
     iconName: "Zap",
-    imageUrl:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/images/work/electrical-pendant.jpg",
     en: {
       title: "Electrical Services",
       seoTitle: "Electrical Services Kuala Lumpur",
@@ -682,8 +679,7 @@ export const services: Record<string, ServiceData> = {
   "aircond-installation": {
     slug: "aircond-installation",
     iconName: "Wind",
-    imageUrl:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/images/work/aircond-split-bedroom.jpg",
     en: {
       title: "Aircond Installation",
       seoTitle: "Aircond Installation Kuala Lumpur",

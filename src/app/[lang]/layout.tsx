@@ -76,7 +76,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
+          url: "/images/work/living-lbox-cassette.jpg",
           width: 1200,
           height: 630,
           alt: "RapiWorks KL - Home Services in Kuala Lumpur",
