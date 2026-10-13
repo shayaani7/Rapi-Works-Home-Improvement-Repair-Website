@@ -8,6 +8,7 @@ import { services } from "@/lib/services";
 import { projects } from "@/lib/projects";
 import ServiceCard from "@/components/ServiceCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HeroGallery from "@/components/HeroGallery";
 import { FaqJsonLd } from "@/components/JsonLd";
 import {
   MapPin,
@@ -67,81 +68,69 @@ export default async function HomePage({ params }: Props) {
       <FaqJsonLd faqs={t.faqSection.items} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white pt-12 pb-20 lg:pt-20 lg:pb-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-28">
         {/* Subtle decorative background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-brand-600/15 blur-3xl pointer-events-none rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-7xl h-96 bg-brand-600/15 blur-3xl pointer-events-none rounded-full" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-w-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Hero Copy */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-brand-300 text-xs font-semibold backdrop-blur">
-                <MapPin className="w-3.5 h-3.5 text-brand-400" />
-                <span>{t.hero.locationBadge}</span>
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6 min-w-0">
+              <div className="inline-flex max-w-full items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-brand-300 text-[11px] sm:text-xs font-semibold backdrop-blur">
+                <MapPin className="w-3.5 h-3.5 text-brand-400 shrink-0" />
+                <span className="leading-snug break-words">{t.hero.locationBadge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+              <h1 className="text-[1.65rem] sm:text-5xl lg:text-5xl font-black tracking-tight text-white leading-tight break-words">
                 {t.hero.headline}
               </h1>
 
-              <p className="text-lg sm:text-xl font-medium text-slate-300 leading-snug">
+              <p className="text-base sm:text-xl font-medium text-slate-300 leading-snug break-words">
                 {t.hero.subheadline}
               </p>
 
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl break-words">
                 {t.hero.description}
               </p>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
                 <WhatsAppButton
                   lang={validLang}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-base shadow-lg shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-base shadow-lg shadow-emerald-600/30 active:scale-[0.98] transition-all"
                 >
                   <span>{t.hero.ctaWhatsApp}</span>
                 </WhatsAppButton>
 
                 <a
                   href={`tel:${site.phoneTel}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 font-bold text-white text-base transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 font-bold text-white text-base transition-all"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4 shrink-0" />
                   <span>{site.phoneDisplay}</span>
                 </a>
               </div>
 
               {/* Trust Badges */}
               <div className="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{t.hero.bullet1}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{t.hero.bullet2}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{t.hero.bullet3}</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Hero Image Card Collage */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Main Hero Showcase Image */}
-                <div className="relative rounded-3xl overflow-hidden border-2 border-slate-700/60 shadow-2xl h-[420px] bg-slate-800">
-                  <Image
-                    src="/images/work/living-lbox-cassette.jpg"
-                    alt="RapiWorks KL plaster ceiling, lighting and aircond work"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 500px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+            {/* Right Hero Image — swipe on mobile */}
+            <div className="lg:col-span-5 relative min-w-0">
+              <HeroGallery />
             </div>
           </div>
         </div>

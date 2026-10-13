@@ -16,16 +16,16 @@ export default function Logo({
   const dark = variant === "dark";
 
   return (
-    <span className="inline-flex items-center gap-3 min-w-0">
-      <span className="relative shrink-0 w-11 h-11" aria-hidden>
+    <span className="inline-flex items-center gap-2 sm:gap-3 min-w-0">
+      <span className="relative shrink-0 w-9 h-9 sm:w-11 sm:h-11" aria-hidden>
         <Mark />
       </span>
 
       {showWordmark && (
         <span className="leading-none min-w-0">
-          <span className="flex items-baseline gap-1.5">
+          <span className="flex items-baseline gap-1 sm:gap-1.5">
             <span
-              className={`text-[21px] font-black tracking-tight ${
+              className={`text-[17px] sm:text-[21px] font-black tracking-tight ${
                 dark ? "text-white" : "text-slate-950"
               }`}
             >
@@ -35,7 +35,7 @@ export default function Logo({
               </span>
             </span>
             <span
-              className={`text-[10px] font-extrabold tracking-[0.18em] ${
+              className={`text-[9px] sm:text-[10px] font-extrabold tracking-[0.18em] ${
                 dark ? "text-brand-300" : "text-brand-700"
               }`}
             >
@@ -44,7 +44,7 @@ export default function Logo({
           </span>
           {showTagline && tagline && (
             <span
-              className={`mt-1.5 block text-[11px] font-medium whitespace-nowrap ${
+              className={`mt-1 hidden sm:block text-[11px] font-medium truncate ${
                 dark ? "text-slate-400" : "text-slate-500"
               }`}
             >

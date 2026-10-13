@@ -63,7 +63,7 @@ export default async function ProjectsPage({ params }: Props) {
             <span className="text-white font-medium">{t.nav.projects}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
+          <h1 className="text-2xl sm:text-5xl font-black tracking-tight break-words">
             {validLang === "en"
               ? "Completed Home & Commercial Projects in KL"
               : "Hasil Kerja Projek di Sekitar Kuala Lumpur"}

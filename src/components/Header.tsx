@@ -77,7 +77,7 @@ export default function Header({ lang }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 overflow-x-hidden">
       {/* Top micro bar for phone & trust */}
       <div className="hidden lg:flex items-center justify-between gap-8 bg-slate-900 text-slate-300 text-[13px] h-10 px-5">
         <div className="flex items-center gap-2.5 min-w-0">
@@ -100,11 +100,11 @@ export default function Header({ lang }: HeaderProps) {
       </div>
 
       {/* Main navigation bar */}
-      <div className="flex items-center h-[76px] px-4 sm:px-5 gap-6">
+      <div className="flex items-center h-[64px] sm:h-[76px] px-3 sm:px-5 gap-2 sm:gap-6 min-w-0">
           {/* Brand Logo — pinned to the left edge */}
           <Link
             href={`/${lang}`}
-            className="shrink-0 group"
+            className="min-w-0 shrink group"
             aria-label={site.name}
           >
             <Logo
@@ -219,7 +219,7 @@ export default function Header({ lang }: HeaderProps) {
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="ml-auto flex lg:hidden items-center gap-2.5">
+          <div className="ml-auto flex lg:hidden items-center gap-1.5 shrink-0">
             <LanguageSwitcher currentLang={lang} />
             <button
               type="button"

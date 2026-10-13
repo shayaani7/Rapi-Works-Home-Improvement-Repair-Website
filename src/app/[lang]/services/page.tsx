@@ -65,7 +65,7 @@ export default async function ServicesHubPage({ params }: Props) {
             <span className="text-white font-medium">{t.nav.services}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight break-words">
             {validLang === "en"
               ? "Our Home Improvement & Repair Services in KL"
               : "Perkhidmatan Renovasi & Pembaikan Rumah di KL"}
@@ -76,16 +76,16 @@ export default async function ServicesHubPage({ params }: Props) {
               : "Kami menyediakan lima perkhidmatan khusus untuk kediaman dan premis komersial di seluruh Kuala Lumpur. Daripada pembaikan kecil hingga renovasi ruang lengkap, pasukan kami menjamin hasil kemas dengan sebut harga telus."}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <WhatsAppButton
               lang={validLang}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-sm shadow transition-all"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-sm shadow transition-all"
             >
               <span>{t.hero.ctaWhatsApp}</span>
             </WhatsAppButton>
             <a
               href={`tel:${site.phoneTel}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm border border-slate-700 transition-all"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm border border-slate-700 transition-all"
             >
               <span>{site.phoneDisplay}</span>
             </a>

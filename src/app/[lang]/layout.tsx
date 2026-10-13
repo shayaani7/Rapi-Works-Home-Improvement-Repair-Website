@@ -117,14 +117,14 @@ export default async function LocaleLayout({
   const validLang = lang as Lang;
 
   return (
-    <html lang={validLang === "ms" ? "ms" : "en"} className="h-full">
+    <html lang={validLang === "ms" ? "ms" : "en"} className="h-full overflow-x-hidden">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900 antialiased selection:bg-brand-500 selection:text-white">
+      <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
         <LocalBusinessJsonLd lang={validLang} />
         <Header lang={validLang} />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 min-w-0 overflow-x-hidden">{children}</div>
         <Footer lang={validLang} />
         <MobileCallBar lang={validLang} />
       </body>

@@ -106,17 +106,17 @@ export default async function ServicePage({ params }: Props) {
           {/* Breadcrumb Navigation */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-xs text-slate-400 mb-6"
+            className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-6 min-w-0"
           >
-            <Link href={`/${validLang}`} className="hover:text-white">
+            <Link href={`/${validLang}`} className="hover:text-white shrink-0">
               {t.nav.home}
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <Link href={`/${validLang}/services`} className="hover:text-white">
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />
+            <Link href={`/${validLang}/services`} className="hover:text-white shrink-0">
               {t.nav.services}
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-brand-300 font-semibold">{data.title}</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />
+            <span className="text-brand-300 font-semibold break-words">{data.title}</span>
           </nav>
 
           <div className="max-w-3xl space-y-4">
@@ -129,7 +129,7 @@ export default async function ServicePage({ params }: Props) {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-5xl font-black tracking-tight leading-tight break-words">
               {data.heading}
             </h1>
 
@@ -137,11 +137,11 @@ export default async function ServicePage({ params }: Props) {
               {data.tagline}
             </p>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
               <WhatsAppButton
                 lang={validLang}
                 service={data.title}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-sm sm:text-base shadow-lg shadow-emerald-600/30 active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-3.5 sm:px-6 sm:py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-sm sm:text-base shadow-lg shadow-emerald-600/30 active:scale-95 transition-all"
               >
                 <span>
                   {validLang === "en"
@@ -152,7 +152,7 @@ export default async function ServicePage({ params }: Props) {
 
               <a
                 href={`tel:${site.phoneTel}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm sm:text-base border border-slate-700 transition-all"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-3.5 sm:px-6 sm:py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm sm:text-base border border-slate-700 transition-all"
               >
                 <Phone className="w-4 h-4" />
                 <span>{site.phoneDisplay}</span>

@@ -11,6 +11,8 @@
 html {
   scroll-behavior: smooth;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -18,11 +20,28 @@ body {
   background: rgb(var(--background-start-rgb));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Ensure mobile content has padding at bottom so sticky call bar does not obscure footer */
 @media (max-width: 767px) {
   body {
-    padding-bottom: 70px;
+    padding-bottom: 78px;
   }
 }

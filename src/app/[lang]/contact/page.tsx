@@ -68,7 +68,7 @@ export default async function ContactPage({ params }: Props) {
             <span className="text-white font-medium">{t.nav.contact}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
+          <h1 className="text-2xl sm:text-5xl font-black tracking-tight break-words">
             {t.contactPage.title}
           </h1>
           <p className="text-base sm:text-lg text-slate-300 mt-4 max-w-2xl leading-relaxed">

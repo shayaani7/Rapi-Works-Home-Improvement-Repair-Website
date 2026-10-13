@@ -30,13 +30,13 @@ export default function LanguageSwitcher({
 
   return (
     <div
-      className={`inline-flex items-center gap-1.5 p-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold ${className}`}
+      className={`inline-flex items-center gap-0.5 sm:gap-1.5 p-0.5 sm:p-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] sm:text-xs font-semibold shrink-0 ${className}`}
       aria-label="Language selector"
     >
-      <Globe className="w-3.5 h-3.5 ml-1 text-slate-500" />
+      <Globe className="hidden sm:block w-3.5 h-3.5 ml-1 text-slate-500" />
       <Link
         href={getLocalizedPath("en")}
-        className={`px-2.5 py-1 rounded-full transition-colors ${
+        className={`px-2 sm:px-2.5 py-1 rounded-full transition-colors ${
           currentLang === "en"
             ? "bg-white text-brand-900 shadow-sm font-bold"
             : "text-slate-600 hover:text-slate-900"
@@ -48,7 +48,7 @@ export default function LanguageSwitcher({
       <span className="text-slate-300">|</span>
       <Link
         href={getLocalizedPath("ms")}
-        className={`px-2.5 py-1 rounded-full transition-colors ${
+        className={`px-2 sm:px-2.5 py-1 rounded-full transition-colors ${
           currentLang === "ms"
             ? "bg-white text-brand-900 shadow-sm font-bold"
             : "text-slate-600 hover:text-slate-900"
