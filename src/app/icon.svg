@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#026ac9"/>
-  <path d="M16 6L7 13.5V25H12V18H20V25H25V13.5L16 6Z" fill="#ffffff" fill-opacity="0.9"/>
-  <path d="M18 10L21 13M13 15L15 17" stroke="#36a2fa" stroke-width="2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="rw" x1="8" y1="2" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0c87eb"/>
+      <stop offset="1" stop-color="#074786"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#rw)"/>
+  <path d="M8.5 20.5L24 8L39.5 20.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 21H34V24.6H17.2V27.2" stroke="#f59e0b" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 40V26H26.4C30.6 26 33.4 28.5 33.4 32.1C33.4 35 31.5 36.9 28.8 37.4L35 40H30.2L24.8 37.2H21V40H17ZM21 34.4H26.2C28.2 34.4 29.5 33.4 29.5 32.1C29.5 30.8 28.2 29.8 26.2 29.8H21V34.4Z" fill="#ffffff"/>
 </svg>

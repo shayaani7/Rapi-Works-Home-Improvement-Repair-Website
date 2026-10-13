@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { translations, type Lang } from "@/lib/translations";
+import Logo from "./Logo";
 import {
-  Wrench,
   Phone,
   MessageSquareText,
   Mail,
@@ -82,13 +82,8 @@ export default function Footer({ lang }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href={`/${lang}`} className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white">
-                <Wrench className="w-4 h-4" />
-              </div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                {site.name}
-              </span>
+            <Link href={`/${lang}`} className="inline-flex" aria-label={site.name}>
+              <Logo variant="dark" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               {t.footer.tagline}
@@ -135,17 +130,12 @@ export default function Footer({ lang }: FooterProps) {
           {/* Service Areas in KL */}
           <div>
             <p className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              {lang === "en" ? "Kuala Lumpur Areas" : "Kawasan Liputan KL"}
+              {lang === "en" ? "Cities We Serve" : "Bandar Liputan"}
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-400">
-              {site.coverageAreas.slice(0, 7).map((area) => (
-                <li key={area} className="hover:text-slate-200">
-                  • {area}
-                </li>
+            <ul className="space-y-2 text-sm text-slate-300">
+              {site.coverageAreas.map((area) => (
+                <li key={area}>{area}</li>
               ))}
-              <li className="text-[11px] text-brand-400 pt-1">
-                {lang === "en" ? "+ Nearby Klang Valley" : "+ Sekitar Lembah Klang"}
-              </li>
             </ul>
           </div>
 
@@ -161,11 +151,11 @@ export default function Footer({ lang }: FooterProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
               >
-                <MessageSquareText className="w-4 h-4" />
-                <span>WhatsApp: {site.whatsappNumber}</span>
+                <MessageSquareText className="w-4 h-4 shrink-0" />
+                <span>WhatsApp: {site.phoneDisplay}</span>
               </a>
               <a
-                href={`tel:${site.whatsappNumber}`}
+                href={`tel:${site.phoneTel}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Phone className="w-4 h-4 text-brand-400" />
@@ -180,12 +170,14 @@ export default function Footer({ lang }: FooterProps) {
               </a>
 
               <div className="pt-2">
-                <Link
-                  href={`/${lang}/contact`}
-                  className="inline-flex items-center justify-center w-full rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold py-2 px-3 shadow transition-all"
+                <a
+                  href={`https://wa.me/${site.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold py-2.5 px-3 shadow transition-all"
                 >
                   {t.nav.getQuote}
-                </Link>
+                </a>
               </div>
             </div>
           </div>

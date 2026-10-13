@@ -4,9 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { services, type ServiceSlug } from "@/lib/services";
 import { translations, type Lang } from "@/lib/translations";
-import { getBaseUrl } from "@/lib/site";
+import { getBaseUrl, site } from "@/lib/site";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import QuoteForm from "@/components/QuoteForm";
 import { FaqJsonLd } from "@/components/JsonLd";
 import {
   ChevronRight,
@@ -14,7 +13,6 @@ import {
   Phone,
   HelpCircle,
   ArrowRight,
-  ShieldAlert,
   Sparkles,
 } from "lucide-react";
 
@@ -153,10 +151,11 @@ export default async function ServicePage({ params }: Props) {
               </WhatsAppButton>
 
               <a
-                href="#quote-form"
-                className="inline-flex items-center justify-center px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm sm:text-base border border-slate-700 transition-all"
+                href={`tel:${site.phoneTel}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm sm:text-base border border-slate-700 transition-all"
               >
-                {validLang === "en" ? "Submit Project Specs" : "Borang Pertanyaan"}
+                <Phone className="w-4 h-4" />
+                <span>{site.phoneDisplay}</span>
               </a>
             </div>
           </div>
@@ -286,14 +285,33 @@ export default async function ServicePage({ params }: Props) {
               </div>
             </div>
 
-            {/* Embedded Quote Form Anchor */}
-            <div id="quote-form">
-              <QuoteForm lang={validLang} initialService={slug} />
+            <div className="rounded-3xl bg-emerald-600 text-white p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+              <div className="max-w-xl">
+                <h2 className="text-xl sm:text-2xl font-black tracking-tight">
+                  {validLang === "en"
+                    ? "Ask about this job on WhatsApp"
+                    : "Tanya tentang kerja ini di WhatsApp"}
+                </h2>
+                <p className="mt-2 text-sm text-emerald-50 leading-relaxed">
+                  {validLang === "en"
+                    ? `Opens WhatsApp to ${site.phoneDisplay} with ${data.title} already filled in. Send the message, then add photos if you have them.`
+                    : `Membuka WhatsApp ke ${site.phoneDisplay} dengan ${data.title} sudah diisi. Hantar mesej, kemudian tambah gambar jika ada.`}
+                </p>
+              </div>
+              <WhatsAppButton
+                lang={validLang}
+                service={data.title}
+                className="inline-flex items-center justify-center gap-2 shrink-0 px-5 py-3.5 rounded-xl bg-white text-emerald-950 font-bold text-sm shadow hover:bg-emerald-50 transition-all"
+              >
+                <span>
+                  {validLang === "en" ? "Open WhatsApp" : "Buka WhatsApp"}
+                </span>
+              </WhatsAppButton>
             </div>
           </article>
 
           {/* Sticky Sidebar (4 cols) */}
-          <aside className="lg:col-span-4 space-y-6">
+          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 lg:self-start">
             {/* Quick Action Box */}
             <div className="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-3xl p-6 shadow-xl space-y-5">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
@@ -321,14 +339,14 @@ export default async function ServicePage({ params }: Props) {
                 </span>
               </WhatsAppButton>
 
-              <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>{validLang === "en" ? "Phone Call:" : "Telefon:"}</span>
+              <div className="pt-2 border-t border-slate-800 flex items-center justify-between gap-3 text-xs text-slate-400">
+                <span>{validLang === "en" ? "Phone" : "Telefon"}</span>
                 <a
-                  href={`tel:${translations[validLang].nav.callNow}`}
+                  href={`tel:${site.phoneTel}`}
                   className="font-bold text-white hover:text-brand-300 flex items-center gap-1.5"
                 >
                   <Phone className="w-3.5 h-3.5 text-brand-400" />
-                  <span>+60 12-345 6789</span>
+                  <span>{site.phoneDisplay}</span>
                 </a>
               </div>
             </div>
@@ -336,30 +354,21 @@ export default async function ServicePage({ params }: Props) {
             {/* Coverage Areas Card */}
             <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
-                {validLang === "en" ? "Service Area in KL" : "Kawasan Liputan di KL"}
+                {validLang === "en" ? "Cities we serve" : "Bandar liputan"}
               </h3>
-              <ul className="space-y-2 text-xs text-slate-600">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>KLCC & Kuala Lumpur City</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Cheras & Ampang</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Setapak & Wangsa Maju</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Kepong & Mont Kiara</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Bangsar & Bukit Bintang</span>
-                </li>
+              <ul className="space-y-2.5 text-sm text-slate-700">
+                {site.coverageAreas.map((area) => (
+                  <li key={area} className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{area}</span>
+                  </li>
+                ))}
               </ul>
+              <p className="mt-4 text-xs text-slate-500 leading-relaxed">
+                {site.address}
+                <br />
+                {site.openingHours[validLang]}
+              </p>
             </div>
 
             {/* Other Services Navigation */}

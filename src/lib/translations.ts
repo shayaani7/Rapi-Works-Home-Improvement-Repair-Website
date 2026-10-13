@@ -9,7 +9,7 @@ export const translations = {
       callNow: "Call Now",
     },
     hero: {
-      locationBadge: "Serving Kuala Lumpur & Klang Valley",
+      locationBadge: "Kuala Lumpur · Selangor · Putrajaya · Cyberjaya",
       headline: "Home Improvement & Repair Services in Kuala Lumpur",
       subheadline:
         "Reliable Painting, Plaster Ceiling, Plumbing, Electrical & Aircond Installation for residential and commercial properties in KL.",
@@ -47,9 +47,9 @@ export const translations = {
             "No hidden fees or unexpected bill shocks. Every quote clearly outlines materials, labor, and project milestones.",
         },
         {
-          title: "Local Kuala Lumpur Experience",
+          title: "Local Coverage You Can Count On",
           description:
-            "We understand condo management guidelines, landed property specifications, and local Malaysian construction practices.",
+            "We take jobs across Kuala Lumpur, Selangor, Putrajaya and Cyberjaya, including condo guidelines and landed homes.",
         },
         {
           title: "Fast WhatsApp Communication",
@@ -68,9 +68,9 @@ export const translations = {
     },
     areasSection: {
       badge: "Coverage",
-      title: "Areas We Serve in Kuala Lumpur",
+      title: "Cities We Serve",
       description:
-        "We are based in KL and regularly undertake jobs across major residential and commercial districts. Not sure if your area is covered? Just drop us a WhatsApp message.",
+        "We accept painting, plaster ceiling, plumbing, electrical and aircond jobs in Kuala Lumpur, Selangor, Putrajaya and Cyberjaya. Message us on WhatsApp with your location to confirm.",
       checkAvailability: "Check Area Availability",
     },
     faqSection: {
@@ -81,7 +81,7 @@ export const translations = {
       items: [
         {
           q: "How can I request a quotation?",
-          a: "The fastest way is through WhatsApp or our online enquiry form. Share your location in Kuala Lumpur, the service required, and a few photos of the site. We provide a preliminary estimate and arrange a free on-site measurement if required.",
+          a: "Tap any WhatsApp button on this website. It opens a chat with 011-2120 6259 and a short message you can send. Add your location, the service you need, and photos of the work.",
         },
         {
           q: "Do you provide services for both homes and businesses?",
@@ -92,8 +92,8 @@ export const translations = {
           a: "Yes, absolutely. We discuss your requirements and supply an itemised quotation before any work commences. You will know the exact cost and scope upfront.",
         },
         {
-          q: "Which areas in Kuala Lumpur do you cover?",
-          a: "We actively cover KLCC, Cheras, Setapak, Kepong, Mont Kiara, Bangsar, Ampang, Wangsa Maju, Bukit Bintang, and nearby Klang Valley areas upon request.",
+          q: "Which cities do you cover?",
+          a: "We serve Kuala Lumpur, Selangor, Putrajaya and Cyberjaya. Send your exact location on WhatsApp and we will confirm availability.",
         },
         {
           q: "Do you assist with condominium management permits?",
@@ -136,7 +136,7 @@ export const translations = {
       badge: "Get in Touch",
       title: "Contact Us & Quotation Enquiries",
       description:
-        "Tell us about your home improvement or maintenance project. We are ready to help anywhere in Kuala Lumpur.",
+        "Tell us about your home improvement or maintenance project. We cover Kuala Lumpur, Selangor, Putrajaya and Cyberjaya.",
       phoneHeader: "Phone & Call",
       whatsappHeader: "WhatsApp Direct",
       hoursHeader: "Business Hours",
@@ -145,7 +145,7 @@ export const translations = {
     },
     footer: {
       tagline:
-        "Professional painting, plaster ceiling, plumbing, electrical, and aircond installation services across Kuala Lumpur.",
+        "Professional painting, plaster ceiling, plumbing, electrical, and aircond installation across Kuala Lumpur, Selangor, Putrajaya and Cyberjaya.",
       quickLinks: "Quick Links",
       ourServices: "Our Services",
       contactInfo: "Contact Information",
@@ -164,7 +164,7 @@ export const translations = {
       callNow: "Hubungi Kami",
     },
     hero: {
-      locationBadge: "Perkhidmatan di Kuala Lumpur & Lembah Klang",
+      locationBadge: "Kuala Lumpur · Selangor · Putrajaya · Cyberjaya",
       headline: "Servis Renovasi dan Pembaikan Rumah di Kuala Lumpur",
       subheadline:
         "Servis Cat Rumah, Plaster Ceiling, Paip, Elektrik dan Pemasangan Aircond untuk kediaman serta premis perniagaan di KL.",
@@ -202,9 +202,9 @@ export const translations = {
             "Tiada caj tersembunyi. Setiap sebut harga memperincikan kos bahan, upah kerja, dan tempoh jangkaan siap.",
         },
         {
-          title: "Berpengalaman di Kawasan KL",
+          title: "Liputan Tempatan",
           description:
-            "Kami faham prosedur pengurusan kondo KL, syarat kerja ubah suai, dan piawaian perumahan tempatan di Malaysia.",
+            "Kami menerima kerja di Kuala Lumpur, Selangor, Putrajaya dan Cyberjaya, termasuk rumah kondo dan rumah landed.",
         },
         {
           title: "Komunikasi Pantas Melalui WhatsApp",
@@ -223,9 +223,9 @@ export const translations = {
     },
     areasSection: {
       badge: "Kawasan Liputan",
-      title: "Kawasan Perkhidmatan Kami di Kuala Lumpur",
+      title: "Bandar Yang Kami Liputi",
       description:
-        "Kami beroperasi di seluruh kawasan tumpuan Kuala Lumpur. Jika anda tidak pasti sama ada lokasi anda termasuk dalam liputan kami, hubungi kami melalui WhatsApp.",
+        "Kami menerima kerja cat rumah, plaster ceiling, paip, elektrik dan aircond di Kuala Lumpur, Selangor, Putrajaya dan Cyberjaya. Hantar lokasi anda di WhatsApp untuk pengesahan.",
       checkAvailability: "Sahkan Lokasi Anda",
     },
     faqSection: {
@@ -236,7 +236,7 @@ export const translations = {
       items: [
         {
           q: "Bagaimana saya boleh mendapatkan sebut harga?",
-          a: "Cara terpantas adalah melalui WhatsApp atau borang pertanyaan laman web ini. Kongsikan lokasi anda di KL, jenis kerja yang diperlukan, dan beberapa gambar tapak. Kami akan berikan anggaran awal dan buat temujanji lawatan tapak jika perlu.",
+          a: "Tekan mana-mana butang WhatsApp di laman ini. Ia membuka chat ke 011-2120 6259 dengan mesej ringkas yang boleh anda hantar. Nyatakan lokasi, jenis kerja dan gambar jika ada.",
         },
         {
           q: "Adakah anda menerima kerja rumah dan premis perniagaan?",
@@ -247,8 +247,8 @@ export const translations = {
           a: "Ya, sudah tentu. Kami membincangkan keperluan projek dan menyediakan sebut harga rasmi berdasarkan maklumat yang diberikan sebelum sebarang kerja dijalankan.",
         },
         {
-          q: "Kawasan mana di Kuala Lumpur yang diliputi?",
-          a: "Kami aktif di KLCC, Cheras, Setapak, Kepong, Mont Kiara, Bangsar, Ampang, Wangsa Maju, Bukit Bintang serta kawasan berdekatan di Lembah Klang atas permintaan.",
+          q: "Bandar mana yang diliputi?",
+          a: "Kami berkhidmat di Kuala Lumpur, Selangor, Putrajaya dan Cyberjaya. Hantar lokasi tepat anda di WhatsApp untuk pengesahan.",
         },
         {
           q: "Adakah anda membantu urusan permit pengurusan kondo?",
@@ -291,7 +291,7 @@ export const translations = {
       badge: "Hubungi Kami",
       title: "Hubungi Kami & Dapatkan Sebut Harga",
       description:
-        "Kongsikan kerja renovasi atau pembaikan rumah yang anda perlukan. Kami sedia membantu di seluruh kawasan Kuala Lumpur.",
+        "Kongsikan kerja renovasi atau pembaikan rumah yang anda perlukan. Kami meliputi Kuala Lumpur, Selangor, Putrajaya dan Cyberjaya.",
       phoneHeader: "Panggilan Telefon",
       whatsappHeader: "WhatsApp Terus",
       hoursHeader: "Waktu Operasi",
@@ -300,7 +300,7 @@ export const translations = {
     },
     footer: {
       tagline:
-        "Servis cat rumah, plaster ceiling, kerja paip, elektrik dan pemasangan aircond profesional di Kuala Lumpur.",
+        "Servis cat rumah, plaster ceiling, kerja paip, elektrik dan pemasangan aircond di Kuala Lumpur, Selangor, Putrajaya dan Cyberjaya.",
       quickLinks: "Pautan Pantas",
       ourServices: "Perkhidmatan Kami",
       contactInfo: "Maklumat Hubungan",

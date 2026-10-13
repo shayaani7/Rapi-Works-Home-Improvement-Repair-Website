@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site, getBaseUrl } from "@/lib/site";
 import { translations, type Lang } from "@/lib/translations";
-import QuoteForm from "@/components/QuoteForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   ChevronRight,
@@ -11,8 +10,6 @@ import {
   MessageSquareText,
   Clock,
   MapPin,
-  Mail,
-  ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
 
@@ -80,155 +77,89 @@ export default async function ContactPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Main Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Contact Methods / Sidebar (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* WhatsApp Highlight Box */}
-            <div className="bg-emerald-600 rounded-3xl p-8 text-white shadow-xl shadow-emerald-600/20 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="rounded-3xl bg-emerald-600 text-white p-8 sm:p-10 shadow-xl shadow-emerald-600/20">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="max-w-xl">
+              <div className="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center mb-4">
                 <MessageSquareText className="w-6 h-6" />
               </div>
-              <h2 className="text-2xl font-bold">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight">
                 {t.contactPage.whatsappHeader}
               </h2>
-              <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed">
+              <p className="mt-2 text-sm sm:text-base text-emerald-50 leading-relaxed">
                 {validLang === "en"
-                  ? "WhatsApp is the fastest way to get a quote. Send us your project photos, address or floor plan for immediate review."
-                  : "WhatsApp adalah cara terpantas untuk mendapatkan sebut harga. Hantarkan gambar tapak atau pelan lantai anda untuk semakan segera."}
+                  ? "Quotes go straight to WhatsApp. The button opens a chat with 011-2120 6259 so you can send your location, the job, and photos."
+                  : "Sebut harga dihantar terus ke WhatsApp. Butang ini membuka chat ke 011-2120 6259 supaya anda boleh hantar lokasi, jenis kerja dan gambar."}
               </p>
-              <div className="pt-2">
-                <WhatsAppButton
-                  lang={validLang}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-white text-emerald-950 font-bold text-sm shadow hover:bg-slate-100 transition-all"
-                >
-                  <span>
-                    {validLang === "en" ? "Chat on WhatsApp" : "Mesej di WhatsApp"}
-                  </span>
-                </WhatsAppButton>
-              </div>
             </div>
+            <WhatsAppButton
+              lang={validLang}
+              className="inline-flex items-center justify-center gap-2 shrink-0 px-6 py-4 rounded-xl bg-white text-emerald-950 font-bold text-base shadow hover:bg-emerald-50 transition-all"
+            >
+              <span>
+                {validLang === "en" ? "Message on WhatsApp" : "Mesej di WhatsApp"}
+              </span>
+            </WhatsAppButton>
+          </div>
+        </div>
 
-            {/* Direct Details Card */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
-              {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    {t.contactPage.phoneHeader}
-                  </p>
-                  <a
-                    href={`tel:${site.whatsappNumber}`}
-                    className="text-base font-bold text-slate-900 hover:text-brand-600 transition-colors"
-                  >
-                    {site.phoneDisplay}
-                  </a>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    {validLang === "en"
-                      ? "Direct calls & emergency queries"
-                      : "Panggilan terus & pertanyaan kecemasan"}
-                  </p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Email
-                  </p>
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="text-base font-bold text-slate-900 hover:text-brand-600 transition-colors"
-                  >
-                    {site.email}
-                  </a>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    {validLang === "en"
-                      ? "Official tenders & commercial RFQs"
-                      : "Sebut harga rasmi & tender premis"}
-                  </p>
-                </div>
-              </div>
-
-              {/* Working Hours */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    {t.contactPage.hoursHeader}
-                  </p>
-                  <p className="text-sm font-bold text-slate-900">
-                    {site.openingHours[validLang]}
-                  </p>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    {validLang === "en"
-                      ? "Work scheduled to fit condo renovation hours"
-                      : "Kerja mengikut ketetapan masa pengurusan kondo"}
-                  </p>
-                </div>
-              </div>
-
-              {/* Coverage Location */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    {t.contactPage.addressHeader}
-                  </p>
-                  <p className="text-sm font-bold text-slate-900">
-                    {site.city}, {site.country}
-                  </p>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    KLCC, Cheras, Setapak, Kepong, Mont Kiara, Ampang, Bangsar
-                  </p>
-                </div>
-              </div>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href={`tel:${site.phoneTel}`}
+            className="flex items-start gap-4 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm hover:border-brand-300 transition-colors"
+          >
+            <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+              <Phone className="w-5 h-5" />
             </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                {t.contactPage.phoneHeader}
+              </p>
+              <p className="mt-1 text-lg font-bold text-slate-900">{site.phoneDisplay}</p>
+            </div>
+          </a>
 
-            {/* Trust Points */}
-            <div className="bg-slate-100 rounded-3xl p-6 border border-slate-200 text-xs text-slate-700 space-y-2.5">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>
-                  {validLang === "en"
-                    ? "Free upfront quotations before work starts"
-                    : "Sebut harga percuma sebelum kerja bermula"}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>
-                  {validLang === "en"
-                    ? "Compliant with condo management guidelines"
-                    : "Mematuhi syarat kerja pengurusan kondominium"}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>
-                  {validLang === "en"
-                    ? "No hidden material markups"
-                    : "Tiada caj tersembunyi kos bahan"}
-                </span>
-              </div>
+          <div className="flex items-start gap-4 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                {t.contactPage.hoursHeader}
+              </p>
+              <p className="mt-1 text-lg font-bold text-slate-900">
+                {site.openingHours[validLang]}
+              </p>
             </div>
           </div>
 
-          {/* Interactive Quotation Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <QuoteForm lang={validLang} />
+          <div className="flex items-start gap-4 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                {t.contactPage.addressHeader}
+              </p>
+              <p className="mt-1 text-base font-bold text-slate-900 leading-snug">
+                {site.address}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                {validLang === "en" ? "Service cities" : "Bandar perkhidmatan"}
+              </p>
+              <p className="mt-1 text-base font-bold text-slate-900 leading-snug">
+                {site.coverageAreas.join(" · ")}
+              </p>
+            </div>
           </div>
         </div>
       </section>

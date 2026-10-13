@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { services } from "@/lib/services";
 import { translations, type Lang } from "@/lib/translations";
-import { getBaseUrl } from "@/lib/site";
+import { getBaseUrl, site } from "@/lib/site";
 import ServiceCard from "@/components/ServiceCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { ChevronRight, Wrench, Shield, CheckCircle } from "lucide-react";
+import { ChevronRight, Shield, CheckCircle } from "lucide-react";
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -83,12 +83,12 @@ export default async function ServicesHubPage({ params }: Props) {
             >
               <span>{t.hero.ctaWhatsApp}</span>
             </WhatsAppButton>
-            <Link
-              href={`/${validLang}/contact`}
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm border border-slate-700 transition-all"
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 font-bold text-white text-sm border border-slate-700 transition-all"
             >
-              {t.nav.getQuote}
-            </Link>
+              <span>{site.phoneDisplay}</span>
+            </a>
           </div>
         </div>
       </section>

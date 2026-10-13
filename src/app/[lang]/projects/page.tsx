@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
 import { translations, type Lang } from "@/lib/translations";
-import { getBaseUrl } from "@/lib/site";
+import { getBaseUrl, site } from "@/lib/site";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { ChevronRight, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -174,12 +174,12 @@ export default async function ProjectsPage({ params }: Props) {
             >
               <span>{t.hero.ctaWhatsApp}</span>
             </WhatsAppButton>
-            <Link
-              href={`/${validLang}/contact`}
+            <a
+              href={`tel:${site.phoneTel}`}
               className="inline-flex items-center px-6 py-3.5 rounded-xl bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-all"
             >
-              {t.nav.getQuote}
-            </Link>
+              {site.phoneDisplay}
+            </a>
           </div>
         </div>
       </section>

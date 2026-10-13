@@ -8,18 +8,14 @@ import { services } from "@/lib/services";
 import { projects } from "@/lib/projects";
 import ServiceCard from "@/components/ServiceCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import QuoteForm from "@/components/QuoteForm";
 import { FaqJsonLd } from "@/components/JsonLd";
 import {
   MapPin,
   CheckCircle2,
-  ShieldCheck,
-  Star,
   ArrowRight,
   Phone,
   HelpCircle,
   Building2,
-  Sparkles,
 } from "lucide-react";
 
 type Props = {
@@ -97,21 +93,21 @@ export default async function HomePage({ params }: Props) {
               </p>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  href={`/${validLang}/contact`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 font-bold text-white text-base shadow-lg shadow-brand-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
-                >
-                  <span>{t.hero.ctaQuote}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <WhatsAppButton
                   lang={validLang}
                   className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-base shadow-lg shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   <span>{t.hero.ctaWhatsApp}</span>
                 </WhatsAppButton>
+
+                <a
+                  href={`tel:${site.phoneTel}`}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 font-bold text-white text-base transition-all"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>{site.phoneDisplay}</span>
+                </a>
               </div>
 
               {/* Trust Badges */}
@@ -144,45 +140,6 @@ export default async function HomePage({ params }: Props) {
                     sizes="(max-width: 1024px) 100vw, 500px"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                  
-                  {/* Floating Overlay Badge */}
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur text-slate-900 shadow-xl border border-white/50">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center font-bold">
-                          KL
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-900">
-                            {validLang === "en" ? "Kuala Lumpur Verified" : "Kontraktor KL Sah"}
-                          </p>
-                          <p className="text-[11px] text-slate-500">
-                            {validLang === "en"
-                              ? "Residential & Commercial Works"
-                              : "Kediaman & Premis Komersial"}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-1 text-amber-500">
-                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                        <span className="text-xs font-black text-slate-900">5.0</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sub floating pill */}
-                <div className="absolute -top-4 -left-4 hidden sm:flex items-center gap-2.5 bg-slate-800/95 backdrop-blur border border-slate-700 px-4 py-2.5 rounded-2xl shadow-xl">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-white">
-                      {validLang === "en" ? "Direct WhatsApp Quote" : "Sebut Harga WhatsApp"}
-                    </p>
-                    <p className="text-[10px] text-slate-400">
-                      {validLang === "en" ? "Fast preliminary review" : "Respon pantas & telus"}
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -234,17 +191,21 @@ export default async function HomePage({ params }: Props) {
               </div>
 
               <div className="pt-6">
-                <Link
-                  href={`/${validLang}/contact`}
+                <WhatsAppButton
+                  lang={validLang}
+                  service={
+                    validLang === "en"
+                      ? "Full home renovation"
+                      : "Pakej ubah suai rumah lengkap"
+                  }
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-brand-950 font-bold text-xs hover:bg-slate-100 transition-colors"
                 >
                   <span>
                     {validLang === "en"
-                      ? "Discuss Combined Project"
-                      : "Bincang Pakej Gabungan"}
+                      ? "Discuss on WhatsApp"
+                      : "Bincang di WhatsApp"}
                   </span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                </WhatsAppButton>
               </div>
             </div>
           </div>
@@ -392,26 +353,18 @@ export default async function HomePage({ params }: Props) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {site.coverageAreas.map((area) => (
               <div
                 key={area}
-                className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center hover:border-brand-400 hover:bg-brand-50/50 transition-colors"
+                className="flex flex-col items-center justify-center gap-2 min-h-[112px] px-4 py-5 rounded-2xl bg-slate-50 border border-slate-200 text-center hover:border-brand-400 hover:bg-brand-50/50 transition-colors"
               >
-                <MapPin className="w-4 h-4 text-brand-600 mx-auto mb-1.5" />
-                <p className="text-xs font-bold text-slate-800 leading-snug">
+                <MapPin className="w-5 h-5 text-brand-600" />
+                <p className="text-sm font-bold text-slate-900 leading-snug">
                   {area}
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-xs text-slate-500">
-              {validLang === "en"
-                ? "Outside these areas? We also accept selected Klang Valley locations (Petaling Jaya, Subang, Puchong) by prior appointment."
-                : "Di luar kawasan ini? Kami juga menerima projek terpilih di Lembah Klang (Petaling Jaya, Subang, Puchong) atas perbincangan awal."}
-            </p>
           </div>
         </div>
       </section>
@@ -455,64 +408,65 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Contact & Quotation Section */}
+      {/* WhatsApp enquiry */}
       <section className="py-20 bg-white border-t border-slate-200" id="quote">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
-                {validLang === "en" ? "Fast Quotation" : "Sebut Harga Pantas"}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-slate-950 text-white p-8 sm:p-12">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                {validLang === "en" ? "WhatsApp quotation" : "Sebut harga WhatsApp"}
               </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <h2 className="mt-3 text-3xl sm:text-4xl font-black tracking-tight">
                 {validLang === "en"
-                  ? "Contact Us for Your Kuala Lumpur Home Project"
-                  : "Hubungi Kami untuk Projek Rumah Anda di KL"}
+                  ? "Send your job details on WhatsApp"
+                  : "Hantar butiran kerja anda di WhatsApp"}
               </h2>
-
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
                 {validLang === "en"
-                  ? "Tell us what you need help with. We discuss your project specifications and arrange a site assessment or upfront quotation."
-                  : "Kongsikan keperluan anda. Kami akan berbincang mengenai skop kerja dan menyediakan anggaran sebut harga atau lawatan tapak."}
+                  ? "There is no enquiry form. Tap the button and WhatsApp opens a chat to 011-2120 6259 with a message ready to send. Add photos of the work before you send it."
+                  : "Tiada borang pertanyaan. Tekan butang dan WhatsApp membuka chat ke 011-2120 6259 dengan mesej sedia untuk dihantar. Tambah gambar kerja sebelum menghantar."}
               </p>
+            </div>
 
-              <div className="space-y-4 pt-2">
-                <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex items-start gap-3.5">
-                  <Sparkles className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-bold text-emerald-950">
-                      {validLang === "en" ? "Fastest: WhatsApp Direct" : "Paling Pantas: WhatsApp Terus"}
-                    </p>
-                    <p className="text-xs text-emerald-800 mt-0.5">
-                      {validLang === "en"
-                        ? "Take photos of your wall, ceiling, leaking pipe, or room and send them straight to WhatsApp."
-                        : "Ambil gambar dinding, siling, paip bocor atau ruang anda dan hantar terus ke WhatsApp kami."}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-medium text-slate-500">
-                      {validLang === "en" ? "Phone Call Support" : "Panggilan Telefon"}
-                    </p>
-                    <p className="text-base font-bold text-slate-900">
-                      {site.phoneDisplay}
-                    </p>
-                  </div>
-                  <a
-                    href={`tel:${site.whatsappNumber}`}
-                    className="p-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition-colors"
-                    aria-label="Call RapiWorks KL"
-                  >
-                    <Phone className="w-4 h-4" />
-                  </a>
-                </div>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  WhatsApp
+                </p>
+                <p className="mt-1 text-base font-bold">{site.phoneDisplay}</p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  {validLang === "en" ? "Hours" : "Waktu"}
+                </p>
+                <p className="mt-1 text-base font-bold">{site.openingHoursShort[validLang]}</p>
+              </div>
+              <div className="rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  {validLang === "en" ? "Address" : "Alamat"}
+                </p>
+                <p className="mt-1 text-sm font-bold leading-snug">Seri Manja Square One</p>
               </div>
             </div>
 
-            <div className="lg:col-span-7">
-              <QuoteForm lang={validLang} />
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+              <WhatsAppButton
+                lang={validLang}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-base shadow-lg transition-all"
+              >
+                <span>
+                  {validLang === "en"
+                    ? "Open WhatsApp and send a message"
+                    : "Buka WhatsApp dan hantar mesej"}
+                </span>
+              </WhatsAppButton>
+              <a
+                href={`tel:${site.phoneTel}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-white/15 font-bold text-white text-base hover:bg-white/10 transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                <span>{site.phoneDisplay}</span>
+              </a>
             </div>
           </div>
         </div>

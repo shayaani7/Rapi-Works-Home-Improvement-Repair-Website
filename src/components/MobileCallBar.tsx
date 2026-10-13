@@ -29,7 +29,7 @@ export default function MobileCallBar({ lang, service }: MobileCallBarProps) {
       {/* Mobile Fixed Bottom CTA Bar (Only visible on small screens < md) */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur border-t border-slate-200 p-2.5 px-4 shadow-2xl flex items-center gap-3">
         <a
-          href={`tel:${site.whatsappNumber}`}
+          href={`tel:${site.phoneTel}`}
           className="flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-slate-900 text-white font-bold text-sm shadow active:scale-95 transition-all"
           aria-label="Call RapiWorks KL"
         >

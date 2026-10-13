@@ -16,20 +16,14 @@ export function LocalBusinessJsonLd({ lang }: LocalBusinessJsonLdProps) {
     image: `${baseUrl}/images/hero-og.jpg`,
     "@id": `${baseUrl}/#business`,
     url: `${baseUrl}/${lang}`,
-    telephone: site.phoneDisplay,
+    telephone: site.phoneTel,
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Jalan Ampang, Kuala Lumpur City Centre",
-      addressLocality: "Kuala Lumpur",
-      addressRegion: "Wilayah Persekutuan Kuala Lumpur",
-      postalCode: "50450",
+      streetAddress: "Seri Manja Square One",
+      addressLocality: "Puchong",
+      addressRegion: "Selangor",
       addressCountry: "MY",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 3.1579,
-      longitude: 101.7119,
     },
     openingHoursSpecification: [
       {
@@ -41,9 +35,10 @@ export function LocalBusinessJsonLd({ lang }: LocalBusinessJsonLdProps) {
           "Thursday",
           "Friday",
           "Saturday",
+          "Sunday",
         ],
-        opens: "08:30",
-        closes: "18:30",
+        opens: "09:00",
+        closes: "19:00",
       },
     ],
     areaServed: site.coverageAreas.map((area) => ({

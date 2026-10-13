@@ -5,6 +5,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { translations, type Lang } from "@/lib/translations";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "./Logo";
 import {
   Wrench,
   Phone,
@@ -78,69 +79,46 @@ export default function Header({ lang }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
       {/* Top micro bar for phone & trust */}
-      <div className="hidden sm:block bg-slate-900 text-slate-300 text-xs py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>
-                {lang === "en"
-                  ? "Trusted Home & Commercial Contractors in Kuala Lumpur"
-                  : "Kontraktor Renovasi & Pembaikan Dipercayai di Kuala Lumpur"}
-              </span>
-            </span>
-            <span className="text-slate-500">|</span>
-            <span>
-              {lang === "en"
-                ? "KLCC · Cheras · Setapak · Kepong · Mont Kiara"
-                : "KLCC · Cheras · Setapak · Kepong · Mont Kiara"}
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${site.whatsappNumber}`}
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-brand-400" />
-              <span>{site.phoneDisplay}</span>
-            </a>
-            <span className="text-slate-500">|</span>
-            <span>
-              {lang === "en" ? "Mon-Sat 8:30am - 6:30pm" : "Isn-Sab 8:30pg - 6:30ptg"}
-            </span>
-          </div>
+      <div className="hidden lg:flex items-center justify-between gap-8 bg-slate-900 text-slate-300 text-[13px] h-10 px-5">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span className="truncate tracking-wide">
+            Kuala Lumpur · Selangor · Putrajaya · Cyberjaya
+          </span>
+        </div>
+        <div className="flex items-center gap-5 shrink-0">
+          <a
+            href={`tel:${site.phoneTel}`}
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5 text-brand-400" />
+            <span>{site.phoneDisplay}</span>
+          </a>
+          <span className="text-slate-600">|</span>
+          <span>{site.openingHoursShort[lang]}</span>
         </div>
       </div>
 
       {/* Main navigation bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand Logo */}
+      <div className="flex items-center h-[76px] px-4 sm:px-5 gap-6">
+          {/* Brand Logo — pinned to the left edge */}
           <Link
             href={`/${lang}`}
-            className="flex items-center gap-2.5 group"
+            className="shrink-0 group"
             aria-label={site.name}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center text-white shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all">
-              <Wrench className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl font-black tracking-tight text-slate-950 font-sans">
-                  RapiWorks
-                </span>
-                <span className="text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">
-                  KL
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-500 font-medium tracking-tight">
-                {lang === "en" ? "Home Improvement & Repair" : "Servis Renovasi & Pembaikan"}
-              </p>
-            </div>
+            <Logo
+              tagline={
+                lang === "en"
+                  ? "Home Improvement & Repair"
+                  : "Servis Renovasi & Pembaikan"
+              }
+              showTagline
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7" aria-label="Primary Navigation">
+          <nav className="hidden lg:flex flex-1 items-center justify-center gap-8" aria-label="Primary Navigation">
             <Link
               href={`/${lang}`}
               className="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors"
@@ -222,24 +200,26 @@ export default function Header({ lang }: HeaderProps) {
             <LanguageSwitcher currentLang={lang} />
 
             <a
-              href={`tel:${site.whatsappNumber}`}
-              className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-brand-600 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors"
+              href={`tel:${site.phoneTel}`}
+              className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-brand-600 px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors whitespace-nowrap"
               aria-label="Call RapiWorks KL"
             >
               <Phone className="w-4 h-4 text-emerald-600" />
               <span>{site.phoneDisplay}</span>
             </a>
 
-            <Link
-              href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow active:scale-[0.98] transition-all"
+            <a
+              href={`https://wa.me/${site.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow active:scale-[0.98] transition-all whitespace-nowrap"
             >
               {t.nav.getQuote}
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex lg:hidden items-center gap-2.5">
+          <div className="ml-auto flex lg:hidden items-center gap-2.5">
             <LanguageSwitcher currentLang={lang} />
             <button
               type="button"
@@ -255,7 +235,6 @@ export default function Header({ lang }: HeaderProps) {
               )}
             </button>
           </div>
-        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
@@ -306,20 +285,21 @@ export default function Header({ lang }: HeaderProps) {
 
             <div className="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-2.5">
               <a
-                href={`tel:${site.whatsappNumber}`}
+                href={`tel:${site.phoneTel}`}
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-slate-200 font-semibold text-slate-800 hover:bg-slate-50"
               >
                 <Phone className="w-4 h-4 text-emerald-600" />
                 <span>{t.nav.callNow}: {site.phoneDisplay}</span>
               </a>
 
-              <Link
-                href={`/${lang}/contact`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center w-full py-3 rounded-xl bg-brand-600 text-white font-semibold shadow hover:bg-brand-700"
+              <a
+                href={`https://wa.me/${site.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full py-3 rounded-xl bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700"
               >
                 {t.nav.getQuote}
-              </Link>
+              </a>
             </div>
           </nav>
         </div>
